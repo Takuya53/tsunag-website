@@ -1,0 +1,31 @@
+export default function Header() {
+  return (
+    <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur">
+      <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-6 sm:px-10">
+        <a
+          href="/"
+          className="text-lg font-bold tracking-[0.3em] text-slate-950"
+        >
+          TSUNAG
+        </a>
+
+        <nav className="hidden items-center gap-8 text-sm font-medium text-slate-600 md:flex">
+          <a href="#mission" className="hover:text-slate-950">
+            Mission
+          </a>
+
+          <a href="#contact" className="hover:text-slate-950">
+            Contact
+          </a>
+        </nav>
+
+        <a
+          href="#contact"
+          className="rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white transition hover:opacity-90"
+        >
+          相談する
+        </a>
+      </div>
+    </header>
+  );
+}
