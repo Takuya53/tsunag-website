@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://tsunag.jp/sitemap.xml",
+    sitemap: "https://tsunag-inc.jp/sitemap.xml",
   };
 }

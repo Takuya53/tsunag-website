@@ -1,60 +1,31 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import "./globals.css";
 
-const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
-
 export const metadata: Metadata = {
-  metadataBase: new URL("https://tsunag.jp"),
+  metadataBase: new URL("https://tsunag-inc.jp"),
   title: {
     default: "TSUNAG｜AIで中小企業の未来を共に創るGrowth Partner",
     template: "%s｜TSUNAG",
   },
   description:
-    "TSUNAGは、AIを活用して中小企業の事業成長を支援するGrowth Partnerです。ホームページ制作、LP制作、SEO対策、SNS戦略、画像・動画・バナー制作まで、未来につながる成長を共に創ります。",
-  keywords: [
-    "TSUNAG",
-    "AI活用",
-    "中小企業支援",
-    "Growth Partner",
-    "ホームページ制作",
-    "LP制作",
-    "SEO対策",
-    "SNS戦略",
-    "動画制作",
-    "画像制作",
-    "バナー制作",
-  ],
-  authors: [{ name: "TSUNAG" }],
-  creator: "TSUNAG",
-  publisher: "TSUNAG",
+    "TSUNAGは、AIを活用して中小企業の事業成長を支援するGrowth Partnerです。ホームページ制作、LP制作、SEO、SNS戦略、画像・動画・バナー制作などを通じて、お客様の未来を共に創ります。",
   openGraph: {
-    type: "website",
-    locale: "ja_JP",
-    url: "https://tsunag.jp",
-    siteName: "TSUNAG",
     title: "TSUNAG｜AIで中小企業の未来を共に創るGrowth Partner",
     description:
-      "TSUNAGは、AIを活用して中小企業の事業成長を支援するGrowth Partnerです。",
-    images: [
-      {
-        url: "/ogp.png",
-        width: 1200,
-        height: 630,
-        alt: "TSUNAG｜未来は、共に創る。",
-      },
-    ],
+      "AIを活用して中小企業の事業成長を支援するGrowth Partner。未来は、共に創る。",
+    url: "https://tsunag-inc.jp",
+    siteName: "TSUNAG",
+    locale: "ja_JP",
+    type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "TSUNAG｜AIで中小企業の未来を共に創るGrowth Partner",
     description:
-      "TSUNAGは、AIを活用して中小企業の事業成長を支援するGrowth Partnerです。",
-    images: ["/ogp.png"],
+      "AIを活用して中小企業の事業成長を支援するGrowth Partner。未来は、共に創る。",
   },
-  icons: {
-    icon: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
+  alternates: {
+    canonical: "https://tsunag-inc.jp",
   },
 };
 
@@ -65,26 +36,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja">
-      <body>
-        {gaMeasurementId && (
-          <>
-            <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
-              strategy="afterInteractive"
-            />
-            <Script id="google-analytics" strategy="afterInteractive">
-              {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag("js", new Date());
-                gtag("config", "${gaMeasurementId}");
-              `}
-            </Script>
-          </>
-        )}
-
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
