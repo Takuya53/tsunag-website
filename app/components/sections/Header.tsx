@@ -1,9 +1,9 @@
 export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur">
-      <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-6 sm:px-10">
+      <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-6">
         <a
-          href="/"
+          href="#top"
           className="text-lg font-bold tracking-[0.3em] text-slate-950"
         >
           TSUNAG
@@ -13,7 +13,6 @@ export default function Header() {
           <a href="#mission" className="hover:text-slate-950">
             Mission
           </a>
-
           <a href="#contact" className="hover:text-slate-950">
             Contact
           </a>
@@ -21,7 +20,7 @@ export default function Header() {
 
         <a
           href="#contact"
-          className="rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white transition hover:opacity-90"
+          className="rounded-full bg-slate-950 px-6 py-3 text-sm font-bold text-white transition hover:bg-slate-800"
         >
           相談する
         </a>
