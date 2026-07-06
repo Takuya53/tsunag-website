@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import StructuredData from "./structured-data";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://tsunag-inc.jp"),
@@ -9,29 +10,23 @@ export const metadata: Metadata = {
   },
   description:
     "TSUNAGは、AIを活用して中小企業の事業成長を支援するGrowth Partnerです。ホームページ制作、LP制作、SEO、SNS戦略、画像・動画・バナー制作などを通じて、お客様の未来を共に創ります。",
-  keywords: [
-    "TSUNAG",
-    "株式会社TSUNAG",
-    "AI活用",
-    "中小企業支援",
-    "ホームページ制作",
-    "LP制作",
-    "SEO対策",
-    "SNS戦略",
-    "画像制作",
-    "動画制作",
-    "バナー制作",
-    "Growth Partner",
-  ],
-  authors: [{ name: "TSUNAG" }],
-  creator: "TSUNAG",
-  publisher: "TSUNAG",
+  alternates: {
+    canonical: "https://tsunag-inc.jp",
+  },
   openGraph: {
     title: "TSUNAG｜AIで中小企業の未来を共に創るGrowth Partner",
     description:
       "AIを活用して中小企業の事業成長を支援するGrowth Partner。未来は、共に創る。",
     url: "https://tsunag-inc.jp",
     siteName: "TSUNAG",
+    images: [
+      {
+        url: "/ogp.png",
+        width: 1200,
+        height: 630,
+        alt: "TSUNAG｜AIで中小企業の未来を共に創るGrowth Partner",
+      },
+    ],
     locale: "ja_JP",
     type: "website",
   },
@@ -40,9 +35,7 @@ export const metadata: Metadata = {
     title: "TSUNAG｜AIで中小企業の未来を共に創るGrowth Partner",
     description:
       "AIを活用して中小企業の事業成長を支援するGrowth Partner。未来は、共に創る。",
-  },
-  alternates: {
-    canonical: "https://tsunag-inc.jp",
+    images: ["/ogp.png"],
   },
   robots: {
     index: true,
@@ -57,7 +50,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja">
-      <body>{children}</body>
+      <body>
+        <StructuredData />
+        {children}
+      </body>
     </html>
   );
 }
