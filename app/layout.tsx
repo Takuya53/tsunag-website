@@ -9,6 +9,23 @@ export const metadata: Metadata = {
   },
   description:
     "TSUNAGは、AIを活用して中小企業の事業成長を支援するGrowth Partnerです。ホームページ制作、LP制作、SEO、SNS戦略、画像・動画・バナー制作などを通じて、お客様の未来を共に創ります。",
+  keywords: [
+    "TSUNAG",
+    "株式会社TSUNAG",
+    "AI活用",
+    "中小企業支援",
+    "ホームページ制作",
+    "LP制作",
+    "SEO対策",
+    "SNS戦略",
+    "画像制作",
+    "動画制作",
+    "バナー制作",
+    "Growth Partner",
+  ],
+  authors: [{ name: "TSUNAG" }],
+  creator: "TSUNAG",
+  publisher: "TSUNAG",
   openGraph: {
     title: "TSUNAG｜AIで中小企業の未来を共に創るGrowth Partner",
     description:
@@ -26,6 +43,10 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://tsunag-inc.jp",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
