@@ -1,39 +1,88 @@
-export default function Header() {
-  return (
-    <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur">
-      <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-6">
-        <a
-          href="/"
-          className="text-lg font-bold tracking-[0.3em] text-slate-950"
-        >
-          TSUNAG
-        </a>
+"use client";
 
-        <nav className="hidden items-center gap-8 text-sm font-medium text-slate-600 md:flex">
-          <a href="/about" className="hover:text-slate-950">
-            About
-          </a>
-          <a href="/services" className="hover:text-slate-950">
-            Services
-          </a>
-          <a href="/works" className="hover:text-slate-950">
-            Works
-          </a>
-          <a href="/company" className="hover:text-slate-950">
-            Company
-          </a>
-          <a href="/contact" className="hover:text-slate-950">
-            Contact
-          </a>
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useState } from "react";
+
+const navItems = [
+  { href: "/about", label: "About Us" },
+  { href: "/services", label: "Services" },
+  { href: "/works", label: "Works" },
+  { href: "/company", label: "Company" },
+  { href: "/news", label: "News" },
+];
+
+export default function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+
+  return (
+    <header className="site-header">
+      <div className="site-header-inner">
+        <Link href="/" className="site-logo" onClick={() => setIsOpen(false)}>
+          <Image
+            src="/logo/logo-full-gold.png"
+            alt="TSUNAG GROWTH PARTNER"
+            width={200}
+            height={64}
+            priority
+          />
+        </Link>
+
+        <nav className="site-nav" aria-label="グローバルナビゲーション">
+          {navItems.map((item) => {
+            const isActive = pathname?.startsWith(item.href);
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={isActive ? "active" : undefined}
+                aria-current={isActive ? "page" : undefined}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
         </nav>
 
-        <a
-          href="/contact"
-          className="rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white transition hover:opacity-90"
+        <Link href="/contact" className="site-header-cta">
+          Contact Us <span aria-hidden="true">→</span>
+        </Link>
+
+        <button
+          type="button"
+          className="site-nav-toggle"
+          aria-label="メニューを開く"
+          aria-expanded={isOpen}
+          onClick={() => setIsOpen((prev) => !prev)}
         >
-          相談する
-        </a>
+          <span />
+        </button>
       </div>
+
+      <nav
+        className={`site-nav-mobile${isOpen ? " is-open" : ""}`}
+        aria-label="モバイルナビゲーション"
+      >
+        {navItems.map((item) => {
+          const isActive = pathname?.startsWith(item.href);
+          return (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={isActive ? "active" : undefined}
+              aria-current={isActive ? "page" : undefined}
+              onClick={() => setIsOpen(false)}
+            >
+              {item.label}
+            </Link>
+          );
+        })}
+        <Link href="/contact" onClick={() => setIsOpen(false)}>
+          相談する
+        </Link>
+      </nav>
     </header>
   );
 }

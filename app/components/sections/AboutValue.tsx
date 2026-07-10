@@ -1,44 +1,52 @@
+import Image from "next/image";
+
+const values = [
+  {
+    icon: "/images/about/value-01.png",
+    title: "共に考え、伴走する",
+    text: "お客様の課題や目標に寄り添い、共に考え、最適策で伴走します。",
+  },
+  {
+    icon: "/images/about/value-02.png",
+    title: "成果にこだわる",
+    text: "見た目の美しさだけでなく、事業成長につながる成果を重視します。",
+  },
+  {
+    icon: "/images/about/value-03.png",
+    title: "最新の力を活かす",
+    text: "AIなど最新のテクノロジーを積極的に取り入れ、最適なソリューションを提供します。",
+  },
+  {
+    icon: "/images/about/value-04.png",
+    title: "誠実であること",
+    text: "誠実なコミュニケーションと透明性のある価値提供を心がけます。",
+  },
+  {
+    icon: "/images/about/value-05.png",
+    title: "長期的な信頼関係",
+    text: "一時的な成果ではなく、長期的に信頼されるパートナーであり続けます。",
+  },
+];
+
 export default function AboutValue() {
-  const values = [
-    {
-      title: "成長戦略",
-      subtitle: "Growth Strategy",
-      text: "事業成長に必要な方向性を整理し、成果につながる戦略を設計します。",
-    },
-    {
-      title: "AI活用支援",
-      subtitle: "AI Transformation",
-      text: "AIを日々の業務・集客・改善活動へ自然に組み込みます。",
-    },
-    {
-      title: "成果創出",
-      subtitle: "Growth Results",
-      text: "制作して終わりではなく、成果が生まれる運用まで伴走します。",
-    },
-  ];
-
   return (
-    <section className="bg-neutral-50 px-6 py-24 md:px-12 lg:px-24">
-      <div className="mx-auto max-w-6xl">
-        <p className="mb-4 text-center text-sm font-medium tracking-[0.3em] text-neutral-500">
-          VALUE
-        </p>
+    <section id="values" className="section section--tight-top section--tight-bottom">
+      <div className="section-inner">
+        <div className="fade-up">
+          <p className="section-label">OUR VALUES</p>
+          <h2 className="section-title" style={{ fontSize: "clamp(28px, 4vw, 40px)" }}>
+            大切にしている価値観
+          </h2>
+        </div>
 
-        <h2 className="mb-16 text-center text-3xl font-semibold tracking-tight text-neutral-950 md:text-4xl">
-          TSUNAGが提供する価値
-        </h2>
-
-        <div className="grid gap-8 md:grid-cols-3">
+        <div className="values-grid fade-up delay-1">
           {values.map((value) => (
-            <div
-              key={value.title}
-              className="rounded-3xl bg-white p-8 shadow-sm ring-1 ring-neutral-200"
-            >
-              <p className="mb-3 text-sm text-neutral-500">{value.subtitle}</p>
-              <h3 className="mb-4 text-xl font-semibold text-neutral-950">
-                {value.title}
-              </h3>
-              <p className="leading-8 text-neutral-600">{value.text}</p>
+            <div className="value-item" key={value.title}>
+              <div className="value-icon">
+                <Image src={value.icon} alt="" width={40} height={40} aria-hidden="true" />
+              </div>
+              <h3>{value.title}</h3>
+              <p>{value.text}</p>
             </div>
           ))}
         </div>

@@ -1,20 +1,18 @@
 import Hero from "./components/sections/Hero";
+import Stats from "./components/sections/Stats";
 import Mission from "./components/sections/Mission";
-import Value from "./components/sections/Value";
 import Services from "./components/sections/Services";
 import Works from "./components/sections/Works";
-import Insights from "./components/sections/Insights";
 import CTA from "./components/sections/CTA";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main>
       <Hero />
+      <Stats />
       <Mission />
-      <Value />
       <Services />
       <Works />
-      <Insights />
       <CTA />
     </main>
   );

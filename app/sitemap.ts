@@ -3,7 +3,7 @@ import type { MetadataRoute } from "next";
 const baseUrl = "https://tsunag-inc.jp";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = ["", "/about", "/services", "/works", "/company", "/contact"];
+  const routes = ["", "/about", "/services", "/works", "/company", "/news", "/contact"];
 
   return routes.map((route) => ({
     url: `${baseUrl}${route}`,

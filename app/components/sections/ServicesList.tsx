@@ -1,52 +1,70 @@
+import Image from "next/image";
+import Link from "next/link";
+
+const services = [
+  {
+    icon: "/images/services/icon-web.png",
+    title: "WEBサイト制作",
+    text: "成果につながる戦略設計とデザイン・開発で、集客・信頼を生むWebサイトを制作します。",
+  },
+  {
+    icon: "/images/services/icon-lp.png",
+    title: "LP制作",
+    text: "コンバージョンを最大化するランディングページを戦略から設計・制作します。",
+  },
+  {
+    icon: "/images/services/icon-seo.png",
+    title: "SEO対策",
+    text: "検索エンジンでの上位表示を目指し、集客につながるSEO施策をトータルで支援します。",
+  },
+  {
+    icon: "/images/services/icon-sns.png",
+    title: "SNS運用",
+    text: "ブランド価値を高め、ファンを増やすSNS運用を企画から実行・改善まで一貫して支援します。",
+  },
+  {
+    icon: "/images/services/icon-image.png",
+    title: "画像制作",
+    text: "ブランドの世界観を表現する高品質な写真・バナー・ビジュアルを制作します。",
+  },
+  {
+    icon: "/images/services/icon-video.png",
+    title: "動画制作",
+    text: "商品の魅力や想いを伝えるプロモーション動画・SNS動画を企画・制作します。",
+  },
+  {
+    icon: "/images/services/icon-ai.png",
+    title: "AIソリューション",
+    text: "AIを活用した業務効率化・自動化・データ分析など、事業成長を支援するソリューションを提供します。",
+  },
+  {
+    icon: "/images/services/icon-webmarketing.png",
+    title: "Webマーケティング",
+    text: "広告運用・アクセス解析・改善提案まで、集客から成果創出までを伴走支援します。",
+  },
+];
+
 export default function ServicesList() {
-  const services = [
-    {
-      title: "Web・LP制作",
-      description: "戦略設計から制作・改善まで一貫して支援します。",
-    },
-    {
-      title: "AI活用支援",
-      description: "AI導入・業務効率化・自動化をサポートします。",
-    },
-    {
-      title: "SEO・SNS運用",
-      description: "集客導線を設計し、認知拡大から成果につなげます。",
-    },
-    {
-      title: "動画・画像制作",
-      description: "ブランド価値を高めるクリエイティブを制作します。",
-    },
-    {
-      title: "業務改善",
-      description: "AIを活用し、社内業務の効率化を支援します。",
-    },
-    {
-      title: "Growth Partner",
-      description: "制作だけで終わらず、成果が出るまで伴走します。",
-    },
-  ];
-
   return (
-    <section className="bg-neutral-50 px-6 py-24">
-      <div className="mx-auto max-w-6xl">
-        <h2 className="mb-12 text-center text-4xl font-semibold">
-          提供サービス
-        </h2>
+    <section id="list" className="section section--tight-bottom">
+      <div className="section-inner">
+        <div className="fade-up">
+          <p className="section-label">OUR SERVICES</p>
+          <h2 className="section-title">サービス一覧</h2>
+        </div>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="service-detail-grid fade-up delay-1">
           {services.map((service) => (
-            <div
-              key={service.title}
-              className="rounded-3xl border border-neutral-200 bg-white p-8"
-            >
-              <h3 className="mb-4 text-2xl font-semibold">
-                {service.title}
-              </h3>
-
-              <p className="leading-8 text-neutral-600">
-                {service.description}
-              </p>
-            </div>
+            <article className="card service-detail-card" key={service.title}>
+              <div className="service-icon">
+                <Image src={service.icon} alt="" width={52} height={52} aria-hidden="true" />
+              </div>
+              <h3>{service.title}</h3>
+              <p>{service.text}</p>
+              <Link href="/services" className="text-link">
+                詳細を見る <span className="arrow">→</span>
+              </Link>
+            </article>
           ))}
         </div>
       </div>

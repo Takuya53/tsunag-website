@@ -1,21 +1,32 @@
+import Image from "next/image";
+import Breadcrumb from "./Breadcrumb";
+
 export default function WorksHero() {
   return (
-    <section className="px-6 py-24 md:px-12 lg:px-24">
-      <div className="mx-auto max-w-5xl">
-        <p className="mb-4 text-sm font-medium tracking-[0.3em] text-neutral-500">
-          WORKS
-        </p>
+    <section className="page-hero">
+      <div className="page-hero-grid">
+        <div className="fade-up">
+          <Breadcrumb current="Works" />
 
-        <h1 className="mb-8 text-4xl font-semibold tracking-tight text-neutral-950 md:text-6xl">
-          成果につながる制作を、
-          <br />
-          共に育てる。
-        </h1>
+          <h1 className="page-hero-title title-en">Works</h1>
+          <p className="page-hero-subtitle">実績紹介</p>
 
-        <p className="max-w-3xl text-lg leading-9 text-neutral-600">
-          TSUNAGは、制作物を納品して終わりにしません。
-          Web・LP・SNS・動画・AI活用を組み合わせ、お客様の事業成長につながる成果を共に創ります。
-        </p>
+          <p className="page-hero-lead">
+            様々な業界の企業様と共に、課題を解決し、
+            <br />
+            成果につながる支援を行ってきました。
+          </p>
+        </div>
+
+        <div className="page-hero-visual fade-up delay-1">
+          <Image
+            src="/images/hero/city-skyline-wide.png"
+            alt="朝日に照らされた都市の風景"
+            fill
+            sizes="(max-width: 900px) 100vw, 50vw"
+            priority
+          />
+        </div>
       </div>
     </section>
   );

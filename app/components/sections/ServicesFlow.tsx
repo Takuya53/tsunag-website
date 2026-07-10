@@ -1,53 +1,63 @@
-export default function ServicesList() {
-  const services = [
-    {
-      title: "Web・LP制作",
-      description: "戦略設計から制作・改善まで一貫して支援します。",
-    },
-    {
-      title: "AI活用支援",
-      description: "AI導入・業務効率化・自動化をサポートします。",
-    },
-    {
-      title: "SEO・SNS運用",
-      description: "集客導線を設計し、認知拡大から成果につなげます。",
-    },
-    {
-      title: "動画・画像制作",
-      description: "ブランド価値を高めるクリエイティブを制作します。",
-    },
-    {
-      title: "業務改善",
-      description: "AIを活用し、社内業務の効率化を支援します。",
-    },
-    {
-      title: "Growth Partner",
-      description: "制作だけで終わらず、成果が出るまで伴走します。",
-    },
-  ];
+import Image from "next/image";
+import Link from "next/link";
 
+const steps = [
+  {
+    icon: "/images/services/process-01.png",
+    title: "ヒアリング・分析",
+    text: "現状の課題や目標を整理し、最適な戦略の方向性を明確にします。",
+  },
+  {
+    icon: "/images/services/process-02.png",
+    title: "戦略設計・ご提案",
+    text: "データと課題をもとに、成果につながる戦略と施策をご提案します。",
+  },
+  {
+    icon: "/images/services/process-03.png",
+    title: "制作・実行",
+    text: "戦略に基づき、デザイン・開発・運用まで高品質に実行します。",
+  },
+  {
+    icon: "/images/services/process-04.png",
+    title: "運用・改善",
+    text: "効果測定と改善を繰り返し、継続的に成果を最大化します。",
+  },
+];
+
+export default function ServicesFlow() {
   return (
-    <section className="bg-neutral-50 px-6 py-24">
-      <div className="mx-auto max-w-6xl">
-        <h2 className="mb-12 text-center text-4xl font-semibold">
-          ご支援の流れ
-        </h2>
+    <section className="section">
+      <div className="section-inner">
+        <div className="process-layout">
+          <div className="fade-up">
+            <p className="section-label">OUR PROCESS</p>
+            <h2 className="section-title" style={{ fontSize: "clamp(28px, 4vw, 40px)" }}>
+              成果創出までの流れ
+            </h2>
+            <p className="section-lead">
+              お客様の課題と未来を深く理解し、
+              戦略から実行・改善まで一貫して伴走します。
+            </p>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {services.map((service) => (
-            <div
-              key={service.title}
-              className="rounded-3xl border border-neutral-200 bg-white p-8"
-            >
-              <h3 className="mb-4 text-2xl font-semibold">
-                {service.title}
-              </h3>
-
-              <p className="leading-8 text-neutral-600">
-                {service.description}
-              </p>
+            <div className="button-row">
+              <Link href="/contact" className="button-primary">
+                ご相談・お問い合わせ <span aria-hidden="true">→</span>
+              </Link>
             </div>
-          ))}
+          </div>
+
+          <div className="process-grid fade-up delay-1">
+            {steps.map((step, index) => (
+              <div className="process-step" key={step.title}>
+                <div className="process-icon-circle">
+                  <Image src={step.icon} alt="" width={40} height={40} aria-hidden="true" />
+                </div>
+                <p className="process-number">{`0${index + 1}`}</p>
+                <h3>{step.title}</h3>
+                <p>{step.text}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

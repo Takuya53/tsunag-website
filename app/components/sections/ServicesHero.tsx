@@ -1,22 +1,40 @@
+import Image from "next/image";
+import Breadcrumb from "./Breadcrumb";
+
 export default function ServicesHero() {
   return (
-    <section className="px-6 py-24 md:px-12 lg:px-24">
-      <div className="mx-auto max-w-5xl">
-        <p className="mb-4 text-sm font-medium tracking-[0.3em] text-neutral-500">
-          SERVICES
-        </p>
+    <section className="page-hero">
+      <div className="page-hero-grid">
+        <div className="fade-up">
+          <Breadcrumb current="Services" />
 
-        <h1 className="mb-8 text-4xl font-semibold tracking-tight text-neutral-950 md:text-6xl">
-          AIで、
-          <br />
-          お客様の未来を豊かにする。
-        </h1>
+          <h1 className="page-hero-title title-en">Services</h1>
+          <p className="page-hero-subtitle">私たちのサービス</p>
 
-        <p className="max-w-3xl text-lg leading-9 text-neutral-600">
-          TSUNAGはホームページ制作だけではありません。
-          AIを活用し、Web制作・LP制作・SEO・SNS運用・動画制作・画像制作・
-          業務改善まで、お客様の事業成長を支援します。
-        </p>
+          <p className="page-hero-lead">
+            AIとクリエイティブの力で、
+            <br />
+            お客様の事業成長を加速させる
+            <br />
+            幅広いサービスを提供します。
+          </p>
+
+          <p className="page-hero-lead" style={{ marginTop: "12px" }}>
+            戦略設計から制作・運用・改善まで、
+            <br />
+            一気通貫で伴走するGrowth Partnerです。
+          </p>
+        </div>
+
+        <div className="page-hero-visual fade-up delay-1">
+          <Image
+            src="/images/about/about-corridor.png"
+            alt="白とゴールドで統一された回廊のイメージ"
+            fill
+            sizes="(max-width: 900px) 100vw, 50vw"
+            priority
+          />
+        </div>
       </div>
     </section>
   );

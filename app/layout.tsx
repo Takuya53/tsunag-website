@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import StructuredData from "./structured-data";
+import Header from "./components/sections/Header";
+import Footer from "./components/sections/Footer";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://tsunag-inc.jp"),
@@ -52,7 +54,9 @@ export default function RootLayout({
     <html lang="ja">
       <body>
         <StructuredData />
+        <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

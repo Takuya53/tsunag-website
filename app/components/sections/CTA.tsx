@@ -1,29 +1,67 @@
+import Image from "next/image";
+import Link from "next/link";
+
+const points = [
+  {
+    icon: "/images/cta/icon-free-consult.png",
+    label: "無料相談",
+  },
+  {
+    icon: "/images/cta/icon-handshake.png",
+    label: "伴走支援",
+  },
+  {
+    icon: "/images/cta/icon-growth.png",
+    label: "成果創出",
+  },
+];
+
 export default function CTA() {
   return (
-    <section
-      id="contact"
-      className="bg-white px-6 py-24 sm:px-10 lg:px-20"
-    >
-      <div className="mx-auto max-w-4xl rounded-3xl bg-slate-950 px-10 py-16 text-center text-white">
-        <p className="text-sm font-semibold tracking-[0.3em] text-slate-400">
-          CONTACT
-        </p>
+    <section className="section section--tight-top">
+      <div className="section-inner">
+        <div className="home-cta fade-up">
+          <Image
+            src="/images/decorations/gold-wave-wide.png"
+            alt=""
+            width={1200}
+            height={360}
+            aria-hidden="true"
+            className="home-cta-wave"
+          />
 
-        <h2 className="mt-6 text-4xl font-bold">
-          まずはお気軽にご相談ください。
-        </h2>
+          <div className="home-cta-lead">
+            <p className="section-label">CONTACT</p>
+            <h2 className="section-title" style={{ fontSize: "clamp(30px, 4vw, 44px)" }}>
+              未来を、
+              <br />
+              <span className="gold-text">共に創りましょう。</span>
+            </h2>
 
-        <p className="mt-6 text-lg leading-8 text-slate-300">
-          お客様の課題をお聞きし、
-          AIを活用した最適なご提案をいたします。
-        </p>
+            <p>
+              まずはお気軽にご相談ください。
+              <br />
+              お客様の課題や目標に寄り添い、最適な成長戦略をご提案します。
+            </p>
 
-        <a
-          href="#"
-          className="mt-10 inline-block rounded-full bg-white px-8 py-4 font-semibold text-slate-950"
-        >
-          お問い合わせ
-        </a>
+            <div className="button-row">
+              <Link href="/contact" className="button-primary">
+                未来について相談する <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+          </div>
+
+          <div className="home-cta-points">
+            {points.map((point) => (
+              <div className="home-cta-point" key={point.label}>
+                <div className="home-cta-point-icon">
+                  <Image src={point.icon} alt="" width={40} height={40} aria-hidden="true" />
+                </div>
+                <span>{point.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

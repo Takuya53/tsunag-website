@@ -17,7 +17,6 @@ export default function ContactPage() {
     event.preventDefault();
 
     const form = event.currentTarget;
-
     setStatus("sending");
     setErrorMessage("");
 
@@ -69,102 +68,119 @@ export default function ContactPage() {
   }
 
   return (
-    <main className="min-h-screen bg-[#F8F5EF] text-[#1E2A32]">
-      <section className="mx-auto max-w-5xl px-6 py-24 md:px-10">
-        <div className="mb-12">
-          <p className="mb-4 text-sm font-semibold tracking-[0.24em] text-[#B58A4A]">
-            CONTACT
-          </p>
-          <h1 className="text-4xl font-bold tracking-tight md:text-5xl">
-            お問い合わせ
-          </h1>
-          <p className="mt-6 max-w-2xl text-base leading-8 text-[#4B5563]">
-            AI活用、Web制作、LP制作、SEO、SNS戦略、クリエイティブ制作など、
-            事業成長に関するご相談をお気軽にお聞かせください。
-          </p>
-        </div>
+    <main>
+      <section className="section">
+        <div className="section-inner grid-2">
+          <div className="fade-up">
+            <p className="section-label">CONTACT</p>
 
-        <div className="rounded-3xl bg-white p-6 shadow-sm md:p-10">
-          {status === "success" ? (
-            <div className="rounded-2xl border border-[#D8C7A3] bg-[#FBF7EF] p-8">
-              <h2 className="text-2xl font-bold">送信が完了しました</h2>
-              <p className="mt-4 leading-8 text-[#4B5563]">
-                お問い合わせありがとうございます。
-                内容を確認のうえ、担当者よりご連絡いたします。
-              </p>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <h1 className="section-title">
+              事業の未来を、
+              <br />
+              <span className="gold-text">共に創りましょう。</span>
+            </h1>
+
+            <p className="section-lead">
+              AI活用、Web制作、LP制作、SEO、SNS戦略、画像・動画制作、
+              バナー制作、業務改善まで。まずは現在の課題や目指したい未来をお聞かせください。
+            </p>
+          </div>
+
+          <div className="card fade-up delay-1" style={{ padding: "48px" }}>
+            {status === "success" ? (
               <div>
-                <label htmlFor="name" className="mb-2 block text-sm font-semibold">
-                  お名前 <span className="text-[#B58A4A]">*</span>
-                </label>
-                <input
-                  id="name"
-                  name="name"
-                  type="text"
-                  required
-                  className="w-full rounded-xl border border-[#D8D2C4] bg-white px-4 py-3 outline-none transition focus:border-[#B58A4A]"
-                  placeholder="山田 太郎"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="email" className="mb-2 block text-sm font-semibold">
-                  メールアドレス <span className="text-[#B58A4A]">*</span>
-                </label>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  required
-                  className="w-full rounded-xl border border-[#D8D2C4] bg-white px-4 py-3 outline-none transition focus:border-[#B58A4A]"
-                  placeholder="example@company.jp"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="company" className="mb-2 block text-sm font-semibold">
-                  会社名
-                </label>
-                <input
-                  id="company"
-                  name="company"
-                  type="text"
-                  className="w-full rounded-xl border border-[#D8D2C4] bg-white px-4 py-3 outline-none transition focus:border-[#B58A4A]"
-                  placeholder="株式会社〇〇"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="message" className="mb-2 block text-sm font-semibold">
-                  お問い合わせ内容 <span className="text-[#B58A4A]">*</span>
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  required
-                  rows={8}
-                  className="w-full rounded-xl border border-[#D8D2C4] bg-white px-4 py-3 outline-none transition focus:border-[#B58A4A]"
-                  placeholder="ご相談内容を入力してください。"
-                />
-              </div>
-
-              {status === "error" && (
-                <p className="rounded-xl bg-red-50 px-4 py-3 text-sm font-semibold text-red-700">
-                  {errorMessage}
+                <p className="section-label">THANK YOU</p>
+                <h2
+                  style={{
+                    fontSize: "32px",
+                    lineHeight: 1.35,
+                    marginBottom: "24px",
+                  }}
+                >
+                  送信が完了しました。
+                </h2>
+                <p style={{ color: "var(--muted)", lineHeight: 1.9 }}>
+                  お問い合わせありがとうございます。
+                  内容を確認のうえ、担当者よりご連絡いたします。
                 </p>
-              )}
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} style={{ display: "grid", gap: "22px" }}>
+                <div>
+                  <label htmlFor="name" style={{ fontWeight: 700 }}>
+                    お名前 *
+                  </label>
+                  <input id="name" name="name" type="text" required placeholder="山田 太郎" />
+                </div>
 
-              <button
-                type="submit"
-                disabled={status === "sending"}
-                className="w-full rounded-full bg-[#1E2A32] px-8 py-4 text-sm font-bold text-white transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60 md:w-auto"
-              >
-                {status === "sending" ? "送信中..." : "送信する"}
-              </button>
-            </form>
-          )}
+                <div>
+                  <label htmlFor="email" style={{ fontWeight: 700 }}>
+                    メールアドレス *
+                  </label>
+                  <input id="email" name="email" type="email" required placeholder="example@company.jp" />
+                </div>
+
+                <div>
+                  <label htmlFor="company" style={{ fontWeight: 700 }}>
+                    会社名
+                  </label>
+                  <input id="company" name="company" type="text" placeholder="株式会社〇〇" />
+                </div>
+
+                <div>
+                  <label htmlFor="message" style={{ fontWeight: 700 }}>
+                    お問い合わせ内容 *
+                  </label>
+                  <textarea id="message" name="message" required rows={7} placeholder="ご相談内容を入力してください。" />
+                </div>
+
+                {status === "error" && (
+                  <p style={{ color: "#b91c1c", fontWeight: 700 }}>
+                    {errorMessage}
+                  </p>
+                )}
+
+                <button
+                  type="submit"
+                  disabled={status === "sending"}
+                  className="button-primary"
+                  style={{ border: "none", cursor: "pointer" }}
+                >
+                  {status === "sending" ? "送信中..." : "送信する"}
+                </button>
+              </form>
+            )}
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="section-inner">
+          <div className="card fade-up" style={{ padding: "56px" }}>
+            <p className="section-label">TRUST</p>
+
+            <h2
+              className="section-title"
+              style={{ marginBottom: "32px" }}
+            >
+              小さな相談から、
+              <br />
+              <span className="gold-text">未来は動き出します。</span>
+            </h2>
+
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit,minmax(220px,1fr))",
+                gap: "20px",
+              }}
+            >
+              <div>✓ 初回相談無料</div>
+              <div>✓ AI活用から制作まで対応</div>
+              <div>✓ 中小企業の成長支援</div>
+              <div>✓ 継続改善まで伴走</div>
+            </div>
+          </div>
         </div>
       </section>
     </main>
